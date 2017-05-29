@@ -1,7 +1,8 @@
-#include <BOARD.h>
-#include <xc.h>
+/* #include <BOARD.h> */
+/* #include <xc.h> */
 #include <stdio.h>
 #include "ES_Configure.h"
+#include "ES_HAL.h"
 #include "ES_Framework.h"
 
 void main(void)

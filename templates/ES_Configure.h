@@ -15,8 +15,6 @@
 #ifndef CONFIGURE_H
 #define CONFIGURE_H
 
-
-
 //defines for keyboard input
 //#define USE_KEYBOARD_INPUT
 //What State machine are we testing
@@ -24,6 +22,9 @@
 
 //define for TattleTale
 #define USE_TATTLETALE
+
+// enable/disable ES_HAL
+#define USE_ES_HAL
 
 //uncomment to supress the entry and exit events
 //#define SUPPRESS_EXIT_ENTRY_IN_TATTLE

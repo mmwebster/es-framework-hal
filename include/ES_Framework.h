@@ -16,19 +16,20 @@
 #define ES_Framework_H
 
 #include <inttypes.h>
+// includes all necessary hardware modules (including BOARD, Timers and ADC)
+#include "ES_HAL.h"
 #include "ES_Events.h"
-#include "ES_Timers.h"
 #include "ES_CheckEvents.h"
 #include "ES_General.h"
-#include "ES_KeyboardInput.h"
+// #include "ES_KeyboardInput.h" // PIC32
 #include "ES_LookupTables.h"
-#include "ES_Port.h"
+// #include "ES_Port.h" // PIC32
 #include "ES_PostList.h"
 #include "ES_PriorTables.h"
 #include "ES_Queue.h"
 #include "ES_ServiceHeaders.h"
 #include "ES_TattleTale.h"
-#include "ES_Timers.h"
+// #include "ES_Timers.h" // PIC32
 
 
 #define ARRAY_SIZE(x)  (sizeof(x)/sizeof(x[0]))
