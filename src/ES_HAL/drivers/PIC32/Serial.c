@@ -1,11 +1,10 @@
 /**
- * @file    PIC32/Serial.h
- * @brief   Header file for the PIC32 Serial module driver
+ * @file    PIC32/Serial.c
+ * @brief   Source file for the PIC32 Serial module driver
  */
 
 
-// Module usage guard before standard header guard b/c all drivers for the same
-// interface have the same file name
+// Ensure code only compiles for PIC32 and when the interface is enabled
 #if ES_HAL_SYS == PIC32 && defined(ES_HAL_USE_SERIAL)
 
 ///////////////////////////////////////////////////////////////////////////
@@ -15,21 +14,25 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "ES_HALConf.h"
-
-#ifndef SERIAL_H
-#define SERIAL_H
+#include "ES_HAL.h"
 
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL driver function prototypes
 ///////////////////////////////////////////////////////////////////////////
-void Serial_DriverInit(void);
-void Serial_DriverStart(void);
-void Serial_DriverStop(void);
-void Serial_DriverRead(void);
-void Serial_DriverWrite(void);
+void Serial_DriverInit(void) {
+}
 
+void Serial_DriverStart(void) {
+}
 
-#endif /* SERIAL_H */
+void Serial_DriverStop(void) {
+}
+
+void Serial_DriverRead(void) {
+}
+
+void Serial_DriverWrite(void) {
+}
 
 #endif /* ES_HAL_SYS == PIC32 && defined(ES_HAL_USE_SERIAL) */

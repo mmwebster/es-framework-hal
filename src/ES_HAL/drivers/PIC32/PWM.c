@@ -1,12 +1,11 @@
 /**
- * @file    PIC32/Servo.h
- * @brief   Header file for the PIC32 Servo module driver
+ * @file    PIC32/PWM.c
+ * @brief   Source file for the PIC32 PWM module driver
  */
 
 
-// Module usage guard before standard header guard b/c all drivers for the same
-// interface have the same file name
-#if ES_HAL_SYS == PIC32
+// Ensure code only compiles for PIC32 and when the interface is enabled
+#if ES_HAL_SYS == PIC32 && defined(ES_HAL_USE_PWM)
 
 ///////////////////////////////////////////////////////////////////////////
 // Default Libraries
@@ -15,20 +14,23 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "ES_HALConf.h"
-
-#ifndef SERVO_H
-#define SERVO_H
+#include "ES_HAL.h"
 
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL driver function prototypes
 ///////////////////////////////////////////////////////////////////////////
-void Servo_DriverInit(void);
-void Servo_DriverStart(void);
-void Servo_DriverStop(void);
-void Servo_DriverWrite(void);
+void PWM_DriverInit(void) {
+}
+
+void PWM_DriverStart(void) {
+}
+
+void PWM_DriverStop(void) {
+}
+
+void PWM_DriverWrite(void) {
+}
 
 
-#endif /* SERVO_H */
-
-#endif /* ES_HAL_SYS == PIC32 */
+#endif /* ES_HAL_SYS == PIC32 && defined(ES_HAL_USE_PWM) */

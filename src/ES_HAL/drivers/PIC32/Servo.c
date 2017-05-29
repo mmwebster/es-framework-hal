@@ -1,12 +1,11 @@
 /**
- * @file    PIC32/KeyInput.h
- * @brief   Header file for the PIC32 KeyInput module driver
+ * @file    PIC32/Servo.c
+ * @brief   Source file for the PIC32 Servo module driver
  */
 
 
-// Module usage guard before standard header guard b/c all drivers for the same
-// interface have the same file name
-#if ES_HAL_SYS == PIC32
+// Ensure code only compiles for PIC32 and when the interface is enabled
+#if ES_HAL_SYS == PIC32 && defined(ES_HAL_USE_SERVO)
 
 ///////////////////////////////////////////////////////////////////////////
 // Default Libraries
@@ -15,20 +14,23 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "ES_HALConf.h"
-
-#ifndef KEYINPUT_H
-#define KEYINPUT_H
+#include "ES_HAL.h"
 
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL driver function prototypes
 ///////////////////////////////////////////////////////////////////////////
-void KeyInput_DriverInit(void);
-void KeyInput_DriverStart(void);
-void KeyInput_DriverStop(void);
-void KeyInput_DriverRead(void);
+void Servo_DriverInit(void) {
+}
+
+void Servo_DriverStart(void) {
+}
+
+void Servo_DriverStop(void) {
+}
+
+void Servo_DriverWrite(void) {
+}
 
 
-#endif /* KEYINPUT_H */
-
-#endif /* ES_HAL_SYS == PIC32 */
+#endif /* ES_HAL_SYS == PIC32 && defined(ES_HAL_USE_SERVO) */

@@ -8,25 +8,14 @@
  */
 
 
-#ifndef ES_HAL_H
-#define ES_HAL_H
-
 // System libraries
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include "ES_HALConf.h"
+#include "ES_HAL.h"
 
 #ifdef USE_ES_HAL
-
-///////////////////////////////////////////////////////////////////////////
-// ...
-///////////////////////////////////////////////////////////////////////////
-
-
-///////////////////////////////////////////////////////////////////////////
-// Private function prototypes
-///////////////////////////////////////////////////////////////////////////
-
 
 ///////////////////////////////////////////////////////////////////////////
 // Public function implementations
@@ -34,11 +23,36 @@
 void ES_HAL_Init(void) {
   // print initialization message
   printf("ES Framework's Hardware Abstraction Layer Initialized.");
+
+  // Initialize all enabled interfaces
+#if ES_HAL_USE_SERIAL == TRUE
+  Serial_Init();
+#endif
+
+#if ES_HAL_USE_KEYINPUT == TRUE
+  KeyInput_Init();
+#endif
+
+// This enables the ADC module
+#if ES_HAL_USE_ADC == TRUE
+  ADC_Init();
+#endif
+
+// This enables the PWM module
+#if ES_HAL_USE_PWM == TRUE
+  PWM_Init();
+#endif
+
+// This enables the Servo module
+#if ES_HAL_USE_SERVO == TRUE
+  Servo_Init();
+#endif
+
+  // Initialize the system
+  System_Init();
 }
 
 
 #endif /* USE_ES_HAL */
-
-#endif /* ES_HAL_H */
 
 // TODO: start writing all .c file implementations (abstractly) then bring in everything from the PIC32 legacy files. Then write a makefile
