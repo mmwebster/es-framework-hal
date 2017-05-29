@@ -15,6 +15,7 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 #include "ES_HAL.h"
+#include "PIC32/Servo.h"
 
 
 ///////////////////////////////////////////////////////////////////////////

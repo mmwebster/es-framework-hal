@@ -1,6 +1,9 @@
 /**
  * @file    PIC32/KeyInput.c
  * @brief   Source file for the PIC32 KeyInput module driver
+ * @TODO    Abstract the keyboard input from the ES_KeyboardInput module in
+ *          order to make the actual keyinput interface that used by the
+ *          ES_KeyboardInput module.
  */
 
 
@@ -15,6 +18,7 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 #include "ES_HAL.h"
+#include "PIC32/KeyInput.h"
 
 
 ///////////////////////////////////////////////////////////////////////////
