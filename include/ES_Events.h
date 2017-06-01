@@ -19,6 +19,7 @@
 
 //#include "stdint.h"
 #include <inttypes.h>
+#include "ES_Configure.h"
 
 typedef struct ES_Event_t {
     ES_EventTyp_t EventType;    // what kind of event?

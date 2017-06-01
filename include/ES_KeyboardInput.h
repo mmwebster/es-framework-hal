@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   ES_KeyboardInput.h
  * Author: mdunne
  *
@@ -6,9 +6,10 @@
  */
 
 #ifndef ES_KEYBOARDINPUT_H
-#define	ES_KEYBOARDINPUT_H
+#define ES_KEYBOARDINPUT_H
 
-
+#include <stdint.h>
+#include "ES_Events.h"
 
 
 /**
@@ -54,5 +55,5 @@ void KeyboardInput_PrintEvents(void);
 
 
 
-#endif	/* ES_KEYBOARDINPUT_H */
+#endif /* ES_KEYBOARDINPUT_H */
 
