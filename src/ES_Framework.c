@@ -20,19 +20,20 @@
 #include "ES_PostList.h"
 #include "ES_CheckEvents.h"
 #include "ES_LookupTables.h"
-#include "ES_Timers.h"
+// CUSTOM: temporary removal of timers module
+/* #include "ES_Timers.h" */
 #include "ES_Framework.h"
-#include "ES_KeyboardInput.h"
+// CUSTOM: temporary removal of keyboard input
+/* #include "ES_KeyboardInput.h" */
 #include "ES_Events.h"
 #include <stdio.h>
-#include <BOARD.h>
-//#include <termio.h>
+// CUSTOM: temporary removal of board module
 
 // Include the header files for the state machines.
 // This gets you the prototypes for the public state machine functions.
 
 #include "ES_ServiceHeaders.h"
-#include "serial.h"
+/* #include "serial.h" */
 
 
 /*----------------------------- Module Defines ----------------------------*/
@@ -189,7 +190,8 @@ uint8_t Ready;
  ****************************************************************************/
 ES_Return_t ES_Initialize(void) {
     unsigned char i;
-    ES_Timer_Init(); // start up the timer subsystem
+    // CUSTOM: temporary comment of timer init, below
+    /* ES_Timer_Init(); // start up the timer subsystem */
     // loop through the list testing for NULL pointers and
     for (i = 0; i < ARRAY_SIZE(ServDescList); i++) {
         if ((ServDescList[i].InitFunc == (pInitFunc) 0) ||
@@ -241,7 +243,7 @@ ES_Return_t ES_Run(void) {
             //}
             for (CurService = 0; CurService < NUM_SERVICES; CurService++) {
                 CurServiceMask = 1 << CurService;
-                //printf("handling queue: %X: %X: %X\r\n", CurService,Ready,Ready & CurServiceMask);
+                /* printf("handling queue: %X: %X: %X\r\n", CurService,Ready,Ready & CurServiceMask); */
                 if (Ready & CurServiceMask) {
                     if (ES_DeQueue(EventQueues[CurService].pMem, &ThisEvent) == 0) {
                         Ready &= ~CurServiceMask; // mark queue as now empty
@@ -351,13 +353,14 @@ static uint8_t CheckSystemEvents(void) {
     //    return TRUE;
     //  }
 #ifdef USE_KEYBOARD_INPUT
-    if (!IsReceiveEmpty()) {
-        ES_Event ThisEvent;
-        ThisEvent.EventType = ES_KEYINPUT;
-        ThisEvent.EventParam = GetChar();
-        PostKeyboardInput(ThisEvent);
-        return TRUE;
-    }
+    // CUSTOM ADDITION (commented the following block)
+    /* if (!IsReceiveEmpty()) { */
+    /*     ES_Event ThisEvent; */
+    /*     ThisEvent.EventType = ES_KEYINPUT; */
+    /*     ThisEvent.EventParam = GetChar(); */
+    /*     PostKeyboardInput(ThisEvent); */
+    /*     return TRUE; */
+    /* } */
 #endif
     return FALSE;
 }

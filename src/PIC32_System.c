@@ -15,6 +15,7 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 #include "ES_HAL.h"
+#include "PIC32_System.h"
 
 #include <xc.h>
 #define _SUPPRESS_PLIB_WARNING

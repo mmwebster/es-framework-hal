@@ -1,6 +1,6 @@
 /**
- * @file    ES_HAL_ACD.c
- * @brief   Source file for the ADC module's interface
+ * @file    ES_HAL_PWM.c
+ * @brief   Source file for the PWM module's interface
  * @todo    The interface functions here currently only serve as wrappers to
  *          the driver functions. Their final role will be to include all
  *          behavior that can be abstracted from the hardware. Wrappers was
@@ -16,27 +16,28 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 #include "ES_HAL.h"
+#include "ES_HAL_PWM.h"
 
-#ifdef USE_ES_HAL_ADC
+#ifdef USE_ES_HAL_PWM
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface API function implementations
 ///////////////////////////////////////////////////////////////////////////
-void ADC_Init(void) {
-  ADC_DriverInit();
+void PWM_Init(void) {
+  PWM_DriverInit();
 }
 
-void ADC_Start(void) {
-  ADC_DriverStart();
+void PWM_Start(void) {
+  PWM_DriverStart();
 }
 
-void ADC_Stop(void) {
-  ADC_DriverStop();
+void PWM_Stop(void) {
+  PWM_DriverStop();
 }
 
-void ADC_Read(void) {
-  ADC_DriverRead();
+void PWM_Write(void) {
+  PWM_DriverWrite();
 }
 
 
-#endif /* USE_ES_HAL_ADC */
+#endif /* USE_ES_HAL_PWM */

@@ -1,6 +1,6 @@
 /**
- * @file    ES_HAL_PWM.c
- * @brief   Source file for the PWM module's interface
+ * @file    ES_HAL_Serial.c
+ * @brief   Source file for the Serial module's interface
  * @todo    The interface functions here currently only serve as wrappers to
  *          the driver functions. Their final role will be to include all
  *          behavior that can be abstracted from the hardware. Wrappers was
@@ -16,27 +16,31 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 #include "ES_HAL.h"
+#include "ES_HAL_Serial.h"
 
-#ifdef USE_ES_HAL_PWM
+#ifdef USE_ES_HAL_SERIAL
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface API function implementations
 ///////////////////////////////////////////////////////////////////////////
-void PWM_Init(void) {
-  PWM_DriverInit();
+void Serial_Init(void) {
+  Serial_DriverInit();
 }
 
-void PWM_Start(void) {
-  PWM_DriverStart();
+void Serial_Start(void) {
+  Serial_DriverStart();
 }
 
-void PWM_Stop(void) {
-  PWM_DriverStop();
+void Serial_Stop(void) {
+  Serial_DriverStop();
 }
 
-void PWM_Write(void) {
-  PWM_DriverWrite();
+void Serial_Read(void) {
+  Serial_DriverRead();
 }
 
+void Serial_Write(void) {
+  Serial_DriverWrite();
+}
 
-#endif /* USE_ES_HAL_PWM */
+#endif /* USE_ES_HAL_SERIAL */

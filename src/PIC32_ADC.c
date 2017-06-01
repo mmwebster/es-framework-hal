@@ -15,7 +15,7 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 #include "ES_HAL.h"
-#include "PIC32/ADC.h"
+#include "PIC32_ADC.h"
 
 #include <xc.h>
 #include <BOARD.h>

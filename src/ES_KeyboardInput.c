@@ -1,12 +1,13 @@
-
-#include <BOARD.h>
 #include "ES_Configure.h"
 #include "ES_Framework.h"
-#include "ES_TattleTale.h"
+// CUSTOM ADDITION (removed tattle tale)
+/* #include "ES_TattleTale.h" */
 #include "ES_KeyboardInput.h"
-#include "serial.h"
+// CUSTOM ADDITION (removed serial.h)
+/* #include "serial.h" */
 #include <stdio.h>
-#include <peripheral/timer.h>
+// CUSTOM ADDITION (removed timer.h)
+/* #include <peripheral/timer.h> */
 
 
 

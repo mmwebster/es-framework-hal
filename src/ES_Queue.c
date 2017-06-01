@@ -14,8 +14,9 @@
 /*----------------------------- Include Files -----------------------------*/
 #include "ES_Configure.h"
 #include "ES_Queue.h"
-#include "ES_Port.h"
-#include <BOARD.h>
+#include "ES_Framework.h"
+/* #include "ES_Port.h" */
+/* #include <BOARD.h> */
 
 /*----------------------------- Module Defines ----------------------------*/
 // QueueSize is max number of entries in the queue
@@ -125,7 +126,8 @@ uint8_t ES_DeQueue( ES_Event * pBlock, ES_Event * pReturnEvent )
    pThisQueue = (pQueue_t)pBlock;
    if ( pThisQueue->NumEntries > 0)
    {
-      EnterCritical();   // save interrupt state, turn ints off
+      // CUSTOM ADDITION (commented enter critical)
+      /* EnterCritical();   // save interrupt state, turn ints off */
       *pReturnEvent = pBlock[ 1 + pThisQueue->CurrentIndex ];
       // inc the index
       pThisQueue->CurrentIndex++;
@@ -134,7 +136,8 @@ uint8_t ES_DeQueue( ES_Event * pBlock, ES_Event * pReturnEvent )
          pThisQueue->CurrentIndex = (unsigned char)(pThisQueue->CurrentIndex % pThisQueue->QueueSize);
       //dec number of elements since we took 1 out
       NumLeft = --pThisQueue->NumEntries; 
-      ExitCritical();  // restore saved interrupt state
+      // CUSTOM ADDITION (commented enter critical)
+      /* ExitCritical();  // restore saved interrupt state */
    }else { // no items left in the queue
       (*pReturnEvent).EventType = ES_NO_EVENT;
       (*pReturnEvent).EventParam = 0;

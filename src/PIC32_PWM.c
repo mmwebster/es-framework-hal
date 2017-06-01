@@ -15,7 +15,7 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 #include "ES_HAL.h"
-#include "PIC32/PWM.h"
+#include "PIC32_PWM.h"
 
 
 #include <xc.h>

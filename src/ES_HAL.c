@@ -25,26 +25,26 @@ void ES_HAL_Init(void) {
   printf("ES Framework's Hardware Abstraction Layer Initialized.");
 
   // Initialize all enabled interfaces
-#if ES_HAL_USE_SERIAL == TRUE
+#if USE_ES_HAL_SERIAL == TRUE
   Serial_Init();
 #endif
 
-#if ES_HAL_USE_KEYINPUT == TRUE
+#if USE_ES_HAL_KEYINPUT == TRUE
   KeyInput_Init();
 #endif
 
 // This enables the ADC module
-#if ES_HAL_USE_ADC == TRUE
+#if USE_ES_HAL_ADC == TRUE
   ADC_Init();
 #endif
 
 // This enables the PWM module
-#if ES_HAL_USE_PWM == TRUE
+#if USE_ES_HAL_PWM == TRUE
   PWM_Init();
 #endif
 
 // This enables the Servo module
-#if ES_HAL_USE_SERVO == TRUE
+#if USE_ES_HAL_SERVO == TRUE
   Servo_Init();
 #endif
 

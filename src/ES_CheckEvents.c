@@ -15,7 +15,9 @@
 #include "ES_Events.h"
 #include "ES_General.h"
 #include "ES_CheckEvents.h"
-#include <BOARD.h>
+#include "Es_Framework.h"
+// CUSTOM ADDITION: commented that line
+/* #include <BOARD.h> */
 
 // Include the header files for the module(s) with your event checkers. 
 // This gets you the prototypes for the event checking functions.

@@ -1,6 +1,6 @@
 /**
- * @file    ES_HAL_System.c
- * @brief   Source file for the System module's interface
+ * @file    ES_HAL_KeyInput.c
+ * @brief   Source file for the KeyInput module's interface
  * @todo    The interface functions here currently only serve as wrappers to
  *          the driver functions. Their final role will be to include all
  *          behavior that can be abstracted from the hardware. Wrappers was
@@ -16,24 +16,28 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 #include "ES_HAL.h"
+#include "ES_HAL_KeyInput.h"
 
-// Always include this source when the HAL is enabled
-#ifdef USE_ES_HAL
+#ifdef USE_ES_HAL_KEYINPUT
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface API function implementations
 ///////////////////////////////////////////////////////////////////////////
-void System_Init(void) {
-  System_DriverInit();
+void KeyInput_Init(void) {
+  KeyInput_DriverInit();
 }
 
-void System_Start(void) {
-  System_DriverStart();
+void KeyInput_Start(void) {
+  KeyInput_DriverStart();
 }
 
-void System_Stop(void) {
-  System_DriverStop();
+void KeyInput_Stop(void) {
+  KeyInput_DriverStop();
+}
+
+void KeyInput_Read(void) {
+  KeyInput_DriverRead();
 }
 
 
-#endif /* USE_ES_HAL */
+#endif /* USE_ES_HAL_KEYINPUT */

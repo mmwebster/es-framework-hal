@@ -1,6 +1,6 @@
 /**
- * @file    ES_HAL_KeyInput.c
- * @brief   Source file for the KeyInput module's interface
+ * @file    ES_HAL_Servo.c
+ * @brief   Source file for the Servo module's interface
  * @todo    The interface functions here currently only serve as wrappers to
  *          the driver functions. Their final role will be to include all
  *          behavior that can be abstracted from the hardware. Wrappers was
@@ -16,27 +16,28 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 #include "ES_HAL.h"
+#include "ES_HAL_Servo.h"
 
-#ifdef USE_ES_HAL_KEYINPUT
+#ifdef USE_ES_HAL_SERVO
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface API function implementations
 ///////////////////////////////////////////////////////////////////////////
-void KeyInput_Init(void) {
-  KeyInput_DriverInit();
+void Servo_Init(void) {
+  Servo_DriverInit();
 }
 
-void KeyInput_Start(void) {
-  KeyInput_DriverStart();
+void Servo_Start(void) {
+  Servo_DriverStart();
 }
 
-void KeyInput_Stop(void) {
-  KeyInput_DriverStop();
+void Servo_Stop(void) {
+  Servo_DriverStop();
 }
 
-void KeyInput_Read(void) {
-  KeyInput_DriverRead();
+void Servo_Write(void) {
+  Servo_DriverWrite();
 }
 
 
-#endif /* USE_ES_HAL_KEYINPUT */
+#endif /* USE_ES_HAL_SERVO */

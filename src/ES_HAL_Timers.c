@@ -1,6 +1,6 @@
 /**
- * @file    ES_HAL_Serial.c
- * @brief   Source file for the Serial module's interface
+ * @file    ES_HAL_Timers.c
+ * @brief   Source file for the Timers module's interface
  * @todo    The interface functions here currently only serve as wrappers to
  *          the driver functions. Their final role will be to include all
  *          behavior that can be abstracted from the hardware. Wrappers was
@@ -16,30 +16,28 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 #include "ES_HAL.h"
+#include "ES_HAL_Timers.h"
 
-#ifdef USE_ES_HAL_SERIAL
+#ifdef USE_ES_HAL_TIMERS
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface API function implementations
 ///////////////////////////////////////////////////////////////////////////
-void Serial_Init(void) {
-  Serial_DriverInit();
+void Timers_Init(void) {
+  Timers_DriverInit();
 }
 
-void Serial_Start(void) {
-  Serial_DriverStart();
+void Timers_Start(void) {
+  Timers_DriverStart();
 }
 
-void Serial_Stop(void) {
-  Serial_DriverStop();
+void Timers_Stop(void) {
+  Timers_DriverStop();
 }
 
-void Serial_Read(void) {
-  Serial_DriverRead();
+void Timers_Read(void) {
+  Timers_DriverRead();
 }
 
-void Serial_Write(void) {
-  Serial_DriverWrite();
-}
 
-#endif /* USE_ES_HAL_SERIAL */
+#endif /* USE_ES_HAL_TIMERS */
