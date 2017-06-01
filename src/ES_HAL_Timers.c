@@ -18,7 +18,8 @@
 #include "ES_HAL.h"
 #include "ES_HAL_Timers.h"
 
-#ifdef USE_ES_HAL_TIMERS
+// This interface is required as the ES Framework cannot function without
+// the timing provided by this interface.
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface API function implementations
@@ -38,6 +39,3 @@ void Timers_Stop(void) {
 void Timers_Read(void) {
   Timers_DriverRead();
 }
-
-
-#endif /* USE_ES_HAL_TIMERS */

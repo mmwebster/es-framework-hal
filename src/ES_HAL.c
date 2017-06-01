@@ -22,7 +22,7 @@
 ///////////////////////////////////////////////////////////////////////////
 void ES_HAL_Init(void) {
   // print initialization message
-  printf("ES Framework's Hardware Abstraction Layer Initialized.");
+  printf("ES Framework's Hardware Abstraction Layer Initialized.\n");
 
   // Initialize all enabled interfaces
 #if USE_ES_HAL_SERIAL == TRUE
@@ -48,7 +48,8 @@ void ES_HAL_Init(void) {
   Servo_Init();
 #endif
 
-  // Initialize the system
+  // Initialize required libraries
+  Timers_Init();
   System_Init();
 }
 
