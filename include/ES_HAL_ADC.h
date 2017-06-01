@@ -1,17 +1,15 @@
 /**
- * @file    ES_HAL_System.h
- * @brief   Header file for the System module's interface
- * @details This file contains all HALL API functions specific to the System
+ * @file    ES_HAL_ACD.h
+ * @brief   Header file for the ADC module's interface
+ * @details This file contains all HALL API functions specific to the ADC
  *          interface. These functions tap into the hardware-specific
  *          drivers, abstracting hardware-specific implementation from
  *          the user.
- * @note    This module has no usage header guard because it cannot be disabled
- *          and requires that a driver be defined for every supported system.
  */
 
 
-#ifndef ES_HAL_SYSTEM_H
-#define ES_HAL_SYSTEM_H
+#ifndef ES_HAL_ADC_H
+#define ES_HAL_ADC_H
 
 ///////////////////////////////////////////////////////////////////////////
 // Default Libraries
@@ -20,21 +18,32 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "ES_HALConf.h"
+#include "ES_HAL.h"
+
+#ifdef USE_ES_HAL_ADC
+
+///////////////////////////////////////////////////////////////////////////
+// Driver constants, macros, enums, etc.
+///////////////////////////////////////////////////////////////////////////
+#define HAL_ADC_RESOLUTION 10 // 2^10 max resolution
 
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface API (public) function prototypes
 ///////////////////////////////////////////////////////////////////////////
-void System_Init(void);
-void System_Start(void);
-void System_Stop(void);
+void ADC_Init(void);
+void ADC_Start(void);
+void ADC_Stop(void);
+void ADC_Read(void);
 
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface drivers
 ///////////////////////////////////////////////////////////////////////////
-#include "PIC32/System.h"
-#include "x86_NIX/System.h"
+#include "PIC32_ADC.h"
+#include "x86_NIX_ADC.h"
 
 
-#endif /* ES_HAL_SYSTEM_H */
+#endif /* USE_ES_HAL_ADC */
+
+#endif /* ES_HAL_ADC_H */

@@ -17,49 +17,48 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "ES_HALConf.h"
+// #include "ES_HALConf.h"
 
 #ifdef USE_ES_HAL
 
 ///////////////////////////////////////////////////////////////////////////
 // HALConf error checking
 ///////////////////////////////////////////////////////////////////////////
-#ifndef ES_HAL_USE_SERIAL
+#if ES_HAL_SYS == 0
+#error "ES_HAL_SYS has not been properly defined in ES_HALConf.h"
+#endif
+
+#ifndef USE_ES_HAL_SERIAL
 #error "ES_HAL_USE_SERIAL not defined in ES_HALConf.h"
 #endif
 
-#ifndef ES_HAL_USE_KEYINPUT
+#ifndef USE_ES_HAL_KEYINPUT
 #error "ES_HAL_USE_KEYINPUT not defined in ES_HALConf.h"
 #endif
 
-#ifndef ES_HAL_USE_ADC
+#ifndef USE_ES_HAL_ADC
 #error "ES_HAL_USE_ADC not defined in ES_HALConf.h"
 #endif
 
-#ifndef ES_HAL_USE_PWM
+#ifndef USE_ES_HAL_PWM
 #error "ES_HAL_USE_PWM not defined in ES_HALConf.h"
 #endif
 
-#ifndef ES_HAL_USE_SERVO
+#ifndef USE_ES_HAL_SERVO
 #error "ES_HAL_USE_SERVO not defined in ES_HALConf.h"
-#endif
-
-#ifndef ES_HAL_USE_STEPPER
-#error "ES_HAL_USE_STEPPER not defined in ES_HALConf.h"
 #endif
 
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL Interfaces
 ///////////////////////////////////////////////////////////////////////////
-#include "interfaces/ES_HAL_Serial.h"
-#include "interfaces/ES_HAL_KeyInput.h"
-#include "interfaces/ES_HAL_ADC.h"
-#include "interfaces/ES_HAL_PWM.h"
-#include "interfaces/ES_HAL_Servo.h"
-#include "interfaces/ES_HAL_Stepper.h"
-#include "interfaces/ES_HAL_Timers.h"
-#include "interfaces/ES_HAL_System.h"
+#include "ES_HAL_Serial.h"
+#include "ES_HAL_KeyInput.h"
+#include "ES_HAL_ADC.h"
+#include "ES_HAL_PWM.h"
+#include "ES_HAL_Servo.h"
+#include "ES_HAL_Timers.h"
+#include "ES_HAL_System.h"
 
 
 ///////////////////////////////////////////////////////////////////////////

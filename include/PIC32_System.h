@@ -3,11 +3,6 @@
  * @brief   Header file for the PIC32 System module driver
  */
 
-
-// Module usage guard before standard header guard b/c all drivers for the same
-// interface have the same file name
-#if ES_HAL_SYS == PIC32
-
 ///////////////////////////////////////////////////////////////////////////
 // Default Libraries
 ///////////////////////////////////////////////////////////////////////////
@@ -15,6 +10,11 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "ES_HALConf.h"
+#include "ES_HAL.h"
+
+// Module usage guard before standard header guard b/c all drivers for the same
+// interface have the same file name
+#if ES_HAL_SYS == PIC32
 
 #ifndef SYSTEM_H
 #define SYSTEM_H

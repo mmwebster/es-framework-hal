@@ -1,25 +1,29 @@
-/*
- * File:   pwm.h
- * Author: mdunne
- *
- * Software module to run the PWM module of the Uno32. The available pins for
- * which the PWM works are #defined below (PortZ-6, PortY-4,10,12, and PortX-11),
- * and are set by the hardware (cannot be modified).
- *
- * NOTE: Module uses TIMER2 for its interrupts.
- *
- * PWM_TEST (in the .c file) conditionally compiles the test harness for the code. 
- * 
- *
- * Created on November 12, 2011, 9:27 AM
+/**
+ * @file    PIC32/PWM.h
+ * @brief   Header file for the PIC32 PWM module driver
  */
 
-#ifndef pwm_H
-#define pwm_H
 
-/*******************************************************************************
- * PUBLIC #DEFINES                                                             *
- ******************************************************************************/
+///////////////////////////////////////////////////////////////////////////
+// Default Libraries
+///////////////////////////////////////////////////////////////////////////
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include "ES_HALConf.h"
+#include "ES_HAL.h"
+
+// Module usage guard before standard header guard b/c all drivers for the same
+// interface have the same file name
+#if ES_HAL_SYS == PIC32 && defined(USE_ES_HAL_PWM)
+
+#ifndef PWM_H
+#define PWM_H
+
+
+///////////////////////////////////////////////////////////////////////////
+// Public #DEFINES
+///////////////////////////////////////////////////////////////////////////
 #define MIN_PWM_FREQ 100
 #define PWM_500HZ 500
 #define PWM_1KHZ 1000
@@ -42,10 +46,13 @@
 #define MAX_PWM 1000
 
 
-
-/*******************************************************************************
- * PUBLIC FUNCTION PROTOTYPES                                                  *
- ******************************************************************************/
+///////////////////////////////////////////////////////////////////////////
+// HAL driver function prototypes
+///////////////////////////////////////////////////////////////////////////
+void PWM_DriverInit(void);
+void PWM_DriverStart(void);
+void PWM_DriverStop(void);
+void PWM_DriverWrite(void);
 
 /**
  * @Function PWM_Init(void)
@@ -128,6 +135,6 @@ unsigned int PWM_GetDutyCycle(char Channel);
 char PWM_End(void);
 
 
+#endif /* PWM_H */
 
-
-#endif
+#endif /* ES_HAL_SYS == PIC32 && defined(ES_HAL_USE_PWM) */

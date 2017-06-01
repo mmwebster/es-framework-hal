@@ -1,15 +1,18 @@
 /**
- * @file    ES_HAL_ACD.h
- * @brief   Header file for the ADC module's interface
- * @details This file contains all HALL API functions specific to the ADC
+ * @file    ES_HAL_Timers.h
+ * @brief   Header file for the Timers module's interface
+ * @details This file contains all HALL API functions specific to the Timers
  *          interface. These functions tap into the hardware-specific
  *          drivers, abstracting hardware-specific implementation from
  *          the user.
+ *
+ * @note    This module has no usage header guard because it cannot be disabled
+ *          and requires that a driver be defined for every supported system.
  */
 
 
-#ifndef ES_HAL_ADC_H
-#define ES_HAL_ADC_H
+#ifndef ES_HAL_TIMERS_H
+#define ES_HAL_TIMERS_H
 
 ///////////////////////////////////////////////////////////////////////////
 // Default Libraries
@@ -19,30 +22,25 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 
-#ifdef USE_ES_HAL_ADC
-
 ///////////////////////////////////////////////////////////////////////////
 // Driver constants, macros, enums, etc.
 ///////////////////////////////////////////////////////////////////////////
-#define HAL_ADC_RESOLUTION 10 // 2^10 max resolution
 
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface API (public) function prototypes
 ///////////////////////////////////////////////////////////////////////////
-void ADC_Init(void);
-void ADC_Start(void);
-void ADC_Stop(void);
-void ADC_Read(void);
+void Timers_Init(void);
+void Timers_Start(void);
+void Timers_Stop(void);
+void Timers_Read(void);
 
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface drivers
 ///////////////////////////////////////////////////////////////////////////
-#include "PIC32/ADC.h"
-#include "x86_NIX/ADC.h"
+#include "PIC32_Timers.h"
+#include "x86_NIX_Timers.h"
 
 
-#endif /* USE_ES_HAL_ADC */
-
-#endif /* ES_HAL_ADC_H */
+#endif /* ES_HAL_TIMERS_H */

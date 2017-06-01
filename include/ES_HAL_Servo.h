@@ -1,15 +1,15 @@
 /**
- * @file    ES_HAL_KeyInput.h
- * @brief   Header file for the KeyInput module's interface
- * @details This file contains all HALL API functions specific to the KeyInput
+ * @file    ES_HAL_Servo.h
+ * @brief   Header file for the Servo module's interface
+ * @details This file contains all HALL API functions specific to the Servo
  *          interface. These functions tap into the hardware-specific
  *          drivers, abstracting hardware-specific implementation from
  *          the user.
  */
 
 
-#ifndef ES_HAL_KEYINPUT_H
-#define ES_HAL_KEYINPUT_H
+#ifndef ES_HAL_SERVO_H
+#define ES_HAL_SERVO_H
 
 ///////////////////////////////////////////////////////////////////////////
 // Default Libraries
@@ -19,7 +19,7 @@
 #include <stdint.h>
 #include "ES_HALConf.h"
 
-#ifdef USE_ES_HAL_KEYINPUT
+#ifdef USE_ES_HAL_SERVO
 
 ///////////////////////////////////////////////////////////////////////////
 // Driver constants, macros, enums, etc.
@@ -29,19 +29,19 @@
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface API (public) function prototypes
 ///////////////////////////////////////////////////////////////////////////
-void KeyInput_Init(void);
-void KeyInput_Start(void);
-void KeyInput_Stop(void);
-void KeyInput_Read(void);
+void Servo_Init(void);
+void Servo_Start(void);
+void Servo_Stop(void);
+void Servo_Write(void);
 
 
 ///////////////////////////////////////////////////////////////////////////
 // HAL interface drivers
 ///////////////////////////////////////////////////////////////////////////
-#include "PIC32/KeyInput.h"
-#include "x86_NIX/KeyInput.h"
+#include "PIC32_Servo.h"
+#include "x86_NIX_Servo.h"
 
 
-#endif /* USE_ES_HAL_KEYINPUT */
+#endif /* USE_ES_HAL_SERVO */
 
-#endif /* ES_HAL_KEYINPUT_H */
+#endif /* ES_HAL_SERVO_H */

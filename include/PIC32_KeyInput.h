@@ -4,10 +4,6 @@
  */
 
 
-// Module usage guard before standard header guard b/c all drivers for the same
-// interface have the same file name
-#if ES_HAL_SYS == PIC32 && defined(ES_HAL_USE_KEYINPUT)
-
 ///////////////////////////////////////////////////////////////////////////
 // Default Libraries
 ///////////////////////////////////////////////////////////////////////////
@@ -15,6 +11,11 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "ES_HALConf.h"
+#include "ES_HAL.h"
+
+// Module usage guard before standard header guard b/c all drivers for the same
+// interface have the same file name
+#if ES_HAL_SYS == PIC32 && defined(USE_ES_HAL_KEYINPUT)
 
 #ifndef KEYINPUT_H
 #define KEYINPUT_H

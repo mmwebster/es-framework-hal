@@ -1,41 +1,29 @@
-/*
- * File:   RC_Servo.h
- * Author: Elkaim
- *
- * Software module to drive up to 10 RC servos using the standard PWM signaling. The nominal
- * input for the servos is a PWM signal with a 20Hz frequency, and a high time from 1msec to
- * 2msec with 1.5msec being centered. Resolusion of module is 1uSec.
- *
- *                   ________________       50mSec period           _______________
- * _________________|  1.0 to 2.0 mS |_____________________________|  1.5mS center |_____
- *
- * The module must be started with the RC_Init() function. Each pin must be added to the module
- * using the RC_AddPin() function, and can be removed using the RC_RemovePin() function. When
- * done with the module, the module must be shut down using the RC_End() function.
- *
- * Pins are attached to the RC_Servo module using #defined RC_PORTxxx from the available
- * list of pins below (not all pins are available for RC servo use). All enabled pins will
- * start with a 1.5msec pulse width (centered).
- *
- * NOTE: This module uses TIMER4 for its internal timing and interrupts. Certain servos
- *       have a larger range and can be driven from 0.5mS to 2.5mse, in this case, change
- *       MINPULSE to 500 and MAXPULSE to 2500 below.  DO NOT do this with the CMPE118 servos,
- *       as this involves some risk.  You're welcome to try it with your own servos.
- *
- * RCSERVO_TEST (defined in the project) conditionally compiles the test harness for the code.
- * Make sure it is commented out for module useage.
- *
- * Created on December 7, 2011, 8:56 AM
- * Updated on July 24, 2013, 12:18 PM
+/**
+ * @file    PIC32/Servo.h
+ * @brief   Header file for the PIC32 Servo module driver
  */
 
-#ifndef RC_Servo_H
-#define RC_Servo_H
 
-/*******************************************************************************
- * PUBLIC #DEFINES                                                             *
- ******************************************************************************/
+///////////////////////////////////////////////////////////////////////////
+// Default Libraries
+///////////////////////////////////////////////////////////////////////////
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include "ES_HALConf.h"
+#include "ES_HAL.h"
 
+// Module usage guard before standard header guard b/c all drivers for the same
+// interface have the same file name
+#if ES_HAL_SYS == PIC32 && defined(USE_ES_HAL_SERVO)
+
+#ifndef SERVO_H
+#define SERVO_H
+
+
+///////////////////////////////////////////////////////////////////////////
+// HAL driver function prototypes
+///////////////////////////////////////////////////////////////////////////
 #define MINPULSE 1000
 #define MAXPULSE 2000
 
@@ -51,9 +39,13 @@
 #define RC_PORTW08 0x200
 
 
-/*******************************************************************************
- * PUBLIC FUNCTION PROTOTYPES                                                  *
- ******************************************************************************/
+///////////////////////////////////////////////////////////////////////////
+// HAL driver function prototypes
+///////////////////////////////////////////////////////////////////////////
+void Servo_DriverInit(void);
+void Servo_DriverStart(void);
+void Servo_DriverStop(void);
+void Servo_DriverWrite(void);
 
 /**
  * @Function RC_Init(void)
@@ -129,4 +121,7 @@ char RC_ChangePending(void);
  * @author Gabriel Hugh Elkaim, 2011.12.15 16:42 */
 char RC_End(void);
 
-#endif
+
+#endif /* SERVO_H */
+
+#endif /* ES_HAL_SYS == PIC32 && defined(ES_HAL_USE_SERVO) */

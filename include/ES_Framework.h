@@ -17,7 +17,6 @@
 
 #include <inttypes.h>
 // includes all necessary hardware modules (including BOARD, Timers and ADC)
-#include "ES_HAL.h"
 #include "ES_Events.h"
 #include "ES_CheckEvents.h"
 #include "ES_General.h"
@@ -28,8 +27,18 @@
 #include "ES_PriorTables.h"
 #include "ES_Queue.h"
 #include "ES_ServiceHeaders.h"
-#include "ES_TattleTale.h"
+// #include "ES_TattleTale.h"
 // #include "ES_Timers.h" // PIC32
+
+
+#ifndef FALSE
+#define FALSE ((int8_t) 0)
+#define TRUE ((int8_t) 1)
+#endif
+#ifndef ERROR
+#define ERROR ((int8_t) -1)
+#define SUCCESS ((int8_t) 1)
+#endif
 
 
 #define ARRAY_SIZE(x)  (sizeof(x)/sizeof(x[0]))
