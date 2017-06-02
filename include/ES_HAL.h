@@ -17,9 +17,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-// #include "ES_HALConf.h"
+#include "ES_HALConf.h"
 
 #ifdef USE_ES_HAL
+
+
+///////////////////////////////////////////////////////////////////////////
+// Public #DEFINES
+///////////////////////////////////////////////////////////////////////////
+#ifndef FALSE
+#define FALSE ((uint8_t) 0)
+#define TRUE ((uint8_t) 1)
+#endif
+#ifndef ERROR
+#define ERROR ((int8_t) -1)
+#define SUCCESS ((int8_t) 1)
+#endif
+
 
 ///////////////////////////////////////////////////////////////////////////
 // HALConf error checking
@@ -28,23 +42,23 @@
 #error "ES_HAL_SYS has not been properly defined in ES_HALConf.h"
 #endif
 
-#ifndef USE_ES_HAL_SERIAL
+#if !defined(USE_ES_HAL_SERIAL)
 #error "ES_HAL_USE_SERIAL not defined in ES_HALConf.h"
 #endif
 
-#ifndef USE_ES_HAL_KEYINPUT
+#if !defined(USE_ES_HAL_KEYINPUT)
 #error "ES_HAL_USE_KEYINPUT not defined in ES_HALConf.h"
 #endif
 
-#ifndef USE_ES_HAL_ADC
+#if !defined(USE_ES_HAL_ADC)
 #error "ES_HAL_USE_ADC not defined in ES_HALConf.h"
 #endif
 
-#ifndef USE_ES_HAL_PWM
+#if !defined(USE_ES_HAL_PWM)
 #error "ES_HAL_USE_PWM not defined in ES_HALConf.h"
 #endif
 
-#ifndef USE_ES_HAL_SERVO
+#if !defined(USE_ES_HAL_SERVO)
 #error "ES_HAL_USE_SERVO not defined in ES_HALConf.h"
 #endif
 
